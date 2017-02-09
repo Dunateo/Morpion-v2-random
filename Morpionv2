@@ -1,0 +1,64 @@
+from random import *
+jeu = [[randint(1,2) for j in range(0,3)] for i in range(0,3)]
+
+nbalignementJ1=0
+nbalignementJ2=0
+#------------------------------------------------------------
+#test alignement lignes 
+for l in range(0,3):
+	J1=False
+	J2=False
+	for c in range(0,3):
+		if jeu[l][c] == 1:
+			J1 = True
+		else:
+			J2=True
+	if not (J1):
+		nbalignementJ2+=1
+	elif not J2:
+		nbalignementJ1+=1
+#------------------------------------------------------------
+#test alignement colonnes 
+for c in range(0,3):
+	J1=False
+	J2=False
+	for l in range(0,3):
+		if jeu[l][c] == 1:
+			J1 = True
+		else:
+			J2=True
+	if not (J1):
+		nbalignementJ2+=1
+	elif not J2:
+		nbalignementJ1+=1
+#------------------------------------------------------------
+#test alignement diag1 		
+J1=False
+J2=False
+for l in range(0,3):
+	if jeu[l][l] == 1:
+		J1 = True
+	else:
+		J2=True
+if not (J1):
+	nbalignementJ2+=1
+elif not J2:
+	nbalignementJ1+=1
+#------------------------------------------------------------
+#test alignement diag2 		
+J1=False
+J2=False
+for l in range(0,3):
+	if jeu[l][2-l] == 1:
+		J1 = True
+	else:
+		J2=True
+if not (J1):
+	nbalignementJ2+=1
+elif not J2:
+	nbalignementJ1+=1
+print("nbalignementJ1=", nbalignementJ1, "nbalignementJ2=", nbalignementJ2)
+#------------------------------------------------------------
+#graph
+for i in range(3):
+	print(jeu[i])
